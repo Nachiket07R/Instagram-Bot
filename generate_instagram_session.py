@@ -31,25 +31,25 @@ L = Instaloader()
 
 
 async def generate():
-    print("Enter your Telegram API_ID")
+    print("API_ID", "21374968")
     API_ID = input()
-    print("Enter API_HASH")
+    print("API_HASH", "2b33c04f7e8c03a7ce2591cb9631ab91")
     API_HASH = input()
-    print("Enter Your BOT_TOKEN from Botfather")
+    print("BOT_TOKEN", "6271783125:AAE56OlOLWsYaUJ72EzbtUZccXa9IOlaSkY")
     BOT_TOKEN = input()
 
     bot = Client("INSTASESSION", API_ID, API_HASH, bot_token=BOT_TOKEN)
     await bot.start()
-    print("Now Enter your Instagram username")
+    print("id", "grim_eclipse")
     id = input()
-    print("Enter Your Instagram Password")
+    print("pwd", "itachi")
     pwd = input()
     try:
         L.login(id, pwd)
         L.save_session_to_file(filename=f"./{id}")
     except TwoFactorAuthRequiredException:
         print(
-            "Your account has Two Factor authentication Enabled.\nNow Enter the code recived on your mobile."
+            "code", "130427"
         )
         code = input()
         L.two_factor_login(code)
